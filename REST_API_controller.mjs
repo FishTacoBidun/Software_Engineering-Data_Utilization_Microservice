@@ -6,7 +6,28 @@
 import 'dotenv/config';
 import express from 'express';
 import asyncHandler from 'express-async-handler';
-import * as data_entries from './REST_API_model.mjs'        // pull schema from model
+import * as data_entries from './REST_API_model.mjs';        // pull schema from model
+
+import create_calorie_entry from './REST_API_model.mjs';     // we may need to individually import these, but maybe not...I'm not sure right now.
+import create_side_scroller_data from './REST_API_model.mjs'; 
+import create_hikes_data from'./REST_API_model.mjs'; 
+import create_habits_data from'./REST_API_model.mjs'; 
+import getCalorieEntries from'./REST_API_model.mjs'; 
+import getSideScrollerData from'./REST_API_model.mjs'; 
+import getHikesData from'./REST_API_model.mjs'; 
+import getHabitsData from'./REST_API_model.mjs'; 
+import getCalorieEntryById from'./REST_API_model.mjs'; 
+import getSideScrollerDataById from'./REST_API_model.mjs'; 
+import getHikesDataById from'./REST_API_model.mjs'; 
+import getHabitsDataById from'./REST_API_model.mjs'; 
+import updateCalorieEntry from'./REST_API_model.mjs'; 
+import updateSideScrollerData from'./REST_API_model.mjs'; 
+import updateHikesData from'./REST_API_model.mjs'; 
+import updateHabitsData from'./REST_API_model.mjs'; 
+import deleteCalorieEntryById from'./REST_API_model.mjs'; 
+import deleteSideScrollerDataById from'./REST_API_model.mjs'; 
+import deleteHikesDataById from'./REST_API_model.mjs'; 
+import deleteHabitsDataById from'./REST_API_model.mjs'; 
 
 const ERROR_NOT_FOUND = {Error: "Not found"};
 const ERROR_INVALID_REQ = {Error: "Invalid request"};
