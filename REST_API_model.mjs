@@ -13,6 +13,8 @@ const HABITS_DB_NAME = 'habits_db';
 
 let connection = undefined;
 
+// ADD conditional to check which custom HTTP header was sent from the calling program to select DB
+
 /**
 * This function connects to the MongoDB server and to the database
 * 'exercise_db' in that server.
