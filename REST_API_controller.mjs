@@ -262,13 +262,50 @@ app.put('/hikes/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT
     res.status(200).json(updatedEntry);                           
 }));
 
-// ---------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------ DELETE OPERATIONS ------------------------------------------------
 
-app.delete('/data_entries/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data---------
-    let toRemove = await data_entries.getDataById(req.params.id);
+app.delete('/calories/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data - Calories---------
+    let toRemove = await calories.getCalorieEntryById(req.params.id);
         if (toRemove === null){
-        res.status(404).json(ERROR_NOT_FOUND);                      // if no match
+        res.status(404).json(ERROR_NOT_FOUND);                              // if no match
     } else {
-        await data_entries.deleteById(req.params.id);               // if match
+        await calories.deleteCalorieEntryById(req.params.id);               // if match
         res.status(204).end();
 }}));
+
+app.delete('/selections/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data - Selection---------
+    let toRemove = await selections.getSelectionById(req.params.id);
+        if (toRemove === null){
+        res.status(404).json(ERROR_NOT_FOUND);                              // if no match
+    } else {
+        await calories.deleteSelectionById(req.params.id);                  // if match
+        res.status(204).end();
+}}));
+
+app.delete('/side_scroller/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data - Side Scroller---------
+    let toRemove = await side_scroller.getSideScrollerDataById(req.params.id);
+        if (toRemove === null){
+        res.status(404).json(ERROR_NOT_FOUND);                              // if no match
+    } else {
+        await side_scroller.deleteSideScrollerDataById(req.params.id);      // if match
+        res.status(204).end();
+}}));
+
+app.delete('/habits/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data - Habits---------
+    let toRemove = await habits.getHabitsDataById(req.params.id);
+        if (toRemove === null){
+        res.status(404).json(ERROR_NOT_FOUND);                              // if no match
+    } else {
+        await habits.deleteHabitsDataById(req.params.id);                     // if match
+        res.status(204).end();
+}}));
+
+app.delete('/hikes/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #5: Delete data - Hikes---------
+    let toRemove = await hikes.getHikesDataById(req.params.id);
+        if (toRemove === null){
+        res.status(404).json(ERROR_NOT_FOUND);                              // if no match
+    } else {
+        await hikes.deleteHikesDataById(req.params.id);                     // if match
+        res.status(204).end();
+}}));
+
