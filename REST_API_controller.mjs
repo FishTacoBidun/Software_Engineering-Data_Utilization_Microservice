@@ -113,12 +113,36 @@ app.post('/hikes', asyncHandler (async (req, res) => {       // --------ENDPOINT
         res.status(201).json(result);                               
     }));
 
-//-------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------- GET OPERATIONS - FULL ARRAY ------------------------------------------------
 
-app.get('/data_entires', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull data--------
-    const data = await data_entries.functionName();                 // replace functionName w/ function info, get array of data
-    res.status(200).json(exerciseOptions);                          // successful result response
+app.get('/calories', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull all data - Calories --------
+    const calories_found = await calories.getCalorieEntries();                 
+    res.status(200).json(calories_found);                          
     }));
+
+app.get('/selections', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull all data - Selections --------
+    const options_found = await selections.getSelections();                 
+    res.status(200).json(options_found);                          
+    }));
+
+app.get('/side_scroller', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull all data - Side Scroller --------
+    const side_scroller_data = await side_scroller.getSideScrollerData();                
+    res.status(200).json(side_scroller_data);                         
+    }));
+
+app.get('/habits', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull all data - Habits --------
+    const habits_found = await habits.getHabitsData();                
+    res.status(200).json(habits_found);                          
+    }));
+
+app.get('/hikes', asyncHandler (async (req, res) => {        // --------ENDPOINT #2: Pull all data - Hikes --------
+    const hikes_found = await hikes.getHikesData();                
+    res.status(200).json(hikes_found);                         
+    }));
+
+//-------------------------------------------- GET OPERATIONS - By ID ------------------------------------------------
+
+
 
 app.get('/data_entires/:id', asyncHandler (async (req, res) => {    // --------ENDPOINT #3: Pull specific data---------
     let data = await data_entries.getDataById(req.params.id);
