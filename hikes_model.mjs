@@ -26,10 +26,13 @@ async function connect() {
 //SCHEMA
 //Side-Scroller Web App
 const hikesSchema = mongoose.Schema({
+    name: {type: String, required: true},
     location: {type: String, required: true},
+    distance: {type: Number, required: true},
+    elevation_gain: {type: Number, required: true},
+    time_to_complete: {type: Number, required: true},
     date: {type: String, required: true},
-    notes: {type: String, required: true},
-    images: {type: String, required: true}
+    status: {type: String. required: true}
 })
 
 //Compile model from schema after defining
