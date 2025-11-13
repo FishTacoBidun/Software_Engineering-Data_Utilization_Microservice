@@ -9,7 +9,7 @@ A connected program can utilize all CRUD operations:
 If query parameters are needed, the controller will need to have a conditional statement included to look for that parameter and the calling program must add ?key=value&key=value at the end of the GET all fetch request string shown.
 Only Calorie Tracker application uses this functionality, so if other programs desire this, this is an addition that is accounted for in this contract.
 
-------------------------------------------------- How to programmatically REQUEST data from the microservice: ----------------------------------------------------------
+---------------- How to programmatically REQUEST data from the microservice: ----------------
   Formatting for a request all: 
       await fetch() and inside the parenthesis, put the controller's imported name for the model being accessed like this: ('/name')
   Formatting for a request one data entry by ID: 
@@ -30,7 +30,7 @@ Examples of requests from connected programs to microservices for GET one:
     const response = await fetch(`/calories/${calorie_entry.id}`);             // this is the calorie tracker application's call for calorie entries
     const response = await fetch(`/selections/${option.id}`);                  // this is the calorie tracker application's call for meal/exercise data
     
--------------------------------------------------- How to programmatically RECEIVE data from the microservice: --------------------------------------------------------
+---------------- How to programmatically RECEIVE data from the microservice: ----------------
   Formatting for receiving the data:
       const data = await response.json();     // used for GET operation shown above. PUT, POST, and DELETE just use response.status to track status of the operation.
                                               // data will be an array of objects that meet the GET all request or a singular object that was requested by ID from a GET one request.
@@ -42,4 +42,4 @@ Examples of requests from connected programs to microservices for GET one:
     const hikes_data = await response.json();                     // this is what the hikes tracker application uses to read a GET of hike entries
     const habits_data = await response.json();                    // this is what the habits tracker application uses to read a GET of habit entries
     
-------------------------------------------------------------------- UML sequence diagram: ---------------------------------------------------------------------------
+---------------- UML sequence diagram: ----------------
