@@ -111,5 +111,7 @@ How to programmatically RECEIVE data from the microservice:
                 // this is what the habits tracker application uses to read a GET of habit entries
 
     
-UML sequence diagram: 
+UML sequence diagram:
+
+
 <img width="755" height="435" alt="image" src="https://github.com/user-attachments/assets/d068bd73-58c7-42fb-a9b4-0f7d4b59b6d1" />
