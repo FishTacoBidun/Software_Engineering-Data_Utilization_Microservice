@@ -96,6 +96,5 @@ const deleteSelectionById = async(id) => {
     return
 }
 
-// Export all functions
 export { connectToDatabase, createSelectionEntry, getSelections, getSelectionById, 
     updateSelection, deleteSelectionById };
