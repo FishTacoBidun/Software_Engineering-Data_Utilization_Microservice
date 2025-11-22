@@ -1,4 +1,5 @@
-// File: calorie_entires_model.mjs for database microservice REST API
+// Description: Calorie-Counting App model.mjs for Calorie Entry objects
+//              for the database microservice REST API.
 // Programmers: Kelsey Shanks, Wolfgang Essink
 
 import mongoose from 'mongoose';
