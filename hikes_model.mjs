@@ -1,5 +1,5 @@
-//File: model.mjs containing the models for the individual databases and database operations for our database_microservice REST API
-//Programmer Name: Kelsey Shanks, Wolfie Essink
+// File: hikes_model.mjs for database microservice REST API
+// Programmers: Kelsey Shanks, Wolfgang Essink
 
 import mongoose from 'mongoose';
 import 'dotenv/config';
@@ -8,11 +8,7 @@ const HIKES_DB_NAME = 'hikes_db';
 
 let connection = undefined;
 
-//ADD conditional to check which custom HTTP header was sent from the calling program to select DB
-//This function connects to the MongoDB server and to the database
-//'exercise_db' in that server.
-
-async function connect() {
+async function connectToDatabases() {
     try{
         connection = await mongoose.connect
             (process.env.MONGODB_CONNECT_STRING, {dbName: HIKES_DB_NAME});
@@ -23,8 +19,7 @@ async function connect() {
     }
 }
 
-//SCHEMA
-//Side-Scroller Web App
+// Hike Tracking App
 const hikesSchema = mongoose.Schema({
     name: {type: String, required: true},
     location: {type: String, required: true},
@@ -32,13 +27,12 @@ const hikesSchema = mongoose.Schema({
     elevation_gain: {type: Number, required: true},
     time_to_complete: {type: Number, required: true},
     date: {type: String, required: true},
-    status: {type: String. required: true}
+    status: {type: String, required: true}
 })
 
-//Compile model from schema after defining
+// Compile model from schema after defining
 const Hikes_Data = mongoose.model(HIKES_DB_NAME, hikesSchema);
 
-//CREATE
 /**
 * Creates new Hikes_Data object in database        
 * @param {string} name
@@ -51,7 +45,7 @@ const Hikes_Data = mongoose.model(HIKES_DB_NAME, hikesSchema);
 * @returns {object} hikes_data
 */
 const createHikesData = async(name, location, distance, elevation_gain, time_to_complete, date, status) => { 
-    const hikes_data = new Habits_Data({
+    const hikes_data = new Hikes_Data({
         name: name,
         location: location, 
         distance: distance, 
@@ -63,7 +57,6 @@ const createHikesData = async(name, location, distance, elevation_gain, time_to_
     return hikes_data.save();
 }
 
-// GET
 /**
 * Pulls all Hikes_Data objects in database as array
 * @returns {array}
@@ -83,12 +76,11 @@ const getHikesDataById = async(id) => {
     return query.exec();
 }
 
-//UPDATE
 /**
 * Updates Habits_Data object in database with new data
 * @param {string} id
 * @param {object} update
-* @returns {object} updated_habits_data
+* @returns {object}
 */
 const updateHikesData = async(id, update) => {
     await Hikes_Data.updateOne({_id: id}, update).exec();
@@ -96,7 +88,6 @@ const updateHikesData = async(id, update) => {
     return updated_hikes_data;
 }
 
-//DELETE 
 /**
 * Deletes Hikes_Data object from database
 * @param {string} id
@@ -106,8 +97,7 @@ const deleteHikesDataById = async(id) => {
     return
 }
 
-
-//Export all functions
-export { connect, createHikesData, getHikesData, 
+// Export all functions
+export { connectToDatabases, createHikesData, getHikesData, 
     getHikesDataById, updateHikesData, deleteHikesDataById, 
 };
