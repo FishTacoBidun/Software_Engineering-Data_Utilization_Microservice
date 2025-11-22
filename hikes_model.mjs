@@ -19,7 +19,7 @@ async function connectToDatabase() {
     }
 }
 
-// Hike Tracking App
+// Hike Tracking App Schema and Model:
 const hikesSchema = mongoose.Schema({
     name: {type: String, required: true},
     location: {type: String, required: true},
@@ -30,7 +30,6 @@ const hikesSchema = mongoose.Schema({
     status: {type: String, required: true}
 })
 
-// Compile model from schema after defining
 const Hikes_Data = mongoose.model(HIKES_DB_NAME, hikesSchema);
 
 /**
