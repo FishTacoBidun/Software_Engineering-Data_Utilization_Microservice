@@ -1,4 +1,4 @@
-// File: habits_model.mjs for database microservice REST API
+// Description: Habit Tracking App model.mjs for the database microservice REST API.
 // Programmers: Kelsey Shanks, Wolfgang Essink
 
 import mongoose from 'mongoose';
