@@ -34,7 +34,7 @@ const Side_Scroller_Data = mongoose.model(SIDE_SCROLLER_DB_NAME, sideScrollerSch
 * @param {boolean} unlocked
 * @returns {object} side_scroller_data
 */
-const create_side_scroller_data = async(levelId, unlocked) => { 
+const createSideScrollerData = async(levelId, unlocked) => { 
     const side_scroller_data = new Side_Scroller_Data({levelId: levelId, unlocked: unlocked});
     return side_scroller_data.save();
 }
@@ -90,7 +90,7 @@ const deleteSideScrollerDataById = async(id) => {
 }
 
 // Export all functions
-export { connectToDatabases, create_side_scroller_data, getSideScrollerData, 
+export { connectToDatabases, createSideScrollerData, getSideScrollerData, 
     getSideScrollerDataByLevelId, getSideScrollerDataById, updateSideScrollerData, 
     deleteSideScrollerDataById
 };
