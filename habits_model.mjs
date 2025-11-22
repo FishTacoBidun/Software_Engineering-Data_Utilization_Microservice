@@ -8,7 +8,7 @@ const HABITS_DB_NAME = 'habits_db';
 
 let connection = undefined;
 
-async function connectToDatabases() {
+async function connectToDatabase() {
     try{
         connection = await mongoose.connect
             (process.env.MONGODB_CONNECT_STRING, {dbName: HABITS_DB_NAME});
@@ -38,8 +38,18 @@ const Habits_Data = mongoose.model(HABITS_DB_NAME, habitsSchema);
 * @param {string} image
 * @returns {object} habits_data
 */
-const createHabitsData = async(name, date, info, image) => { 
-    const habits_data = new Habits_Data({name: name, date: date, info: info, image: image});
+const createHabitsData = async(
+    name, 
+    date, 
+    info, 
+    image
+) => { 
+    const habits_data = new Habits_Data({
+        name: name, 
+        date: date, 
+        info: info, 
+        image: image
+    });
     return habits_data.save();
 }
 
@@ -85,6 +95,6 @@ const deleteHabitsDataById = async(id) => {
 
 
 // Export all functions
-export { connectToDatabases, createHabitsData, getHabitsData, 
+export { connectToDatabase, createHabitsData, getHabitsData, 
     getHabitsDataById, updateHabitsData, deleteHabitsDataById, 
 };
