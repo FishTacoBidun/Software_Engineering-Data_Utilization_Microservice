@@ -8,7 +8,7 @@ const CALORIES_DB_NAME = 'calories_db_selections';
 
 let connection = undefined;
 
-async function connectToDatabases() {
+async function connectToDatabase() {
     try{
         connection = await mongoose.connect
             (process.env.MONGODB_CONNECT_STRING, {dbName: CALORIES_DB_NAME});
@@ -40,7 +40,13 @@ const Selection_Entry = mongoose.model(CALORIES_DB_NAME, calorieCounterSchema);
 * @param {string} type
 * @returns {object} calorie_entry
 */
-const createSelectionEntry = async(name, calories, image, ingredients, type) => {
+const createSelectionEntry = async(
+    name, 
+    calories, 
+    image, 
+    ingredients, 
+    type
+) => {
     const meal_entry = new Selection_Entry({
         name: name,
         calories: calories,
@@ -92,5 +98,5 @@ const deleteSelectionById = async(id) => {
 }
 
 // Export all functions
-export { connectToDatabases, createSelectionEntry, getSelections, getSelectionById, 
+export { connectToDatabase, createSelectionEntry, getSelections, getSelectionById, 
     updateSelection, deleteSelectionById };
