@@ -1,4 +1,4 @@
-// Description: Calorie-Counting App model.mjs for Meals and Exercises objects
+// Description: Calorie-Counting App model.mjs for Selection_Entry objects
 //              for the database microservice REST API.
 // Programmers: Kelsey Shanks, Wolfgang Essink
 
