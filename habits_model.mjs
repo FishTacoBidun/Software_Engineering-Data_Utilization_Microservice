@@ -92,8 +92,6 @@ const deleteHabitsDataById = async(id) => {
     return
 }
 
-
-// Export all functions
 export { connectToDatabase, createHabitsData, getHabitsData, 
     getHabitsDataById, updateHabitsData, deleteHabitsDataById, 
 };
